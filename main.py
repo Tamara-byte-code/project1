@@ -3,7 +3,7 @@ PI = 3.14
 
 def circle_area(r: int | float) -> int | float:
 
-    circle = PI * r ** 2
+    circle = PI * r**2
     return circle
 
 
