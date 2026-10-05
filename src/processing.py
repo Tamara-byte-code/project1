@@ -1,4 +1,7 @@
-def filter_by_state(my_list, state="EXECUTED"):
+def filter_by_state(my_list: list[dict], state: str = "EXECUTED") -> list[dict]:
+    """Функция возвращает новый список словарей, содержащий только те словари,
+     у которых ключ state соответствует указанному значению."""
+
     new_list = []
     for i in my_list:
         if i.get("state") == state:
@@ -6,12 +9,13 @@ def filter_by_state(my_list, state="EXECUTED"):
     return new_list
 
 
-def sort_by_date(my_list, sort_revers = True):
-    return sorted(my_list, key = lambda i: i["date"], reverse= sort_revers)
+def sort_by_date(my_list: list[dict], sort_revers: bool = True) -> list[dict]:
+    """ Функция  возвращает новый список, отсортированный по дате"""
+
+    return sorted(my_list, key=lambda i: i["date"], reverse=sort_revers)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     d = [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
@@ -20,6 +24,5 @@ if __name__ == '__main__':
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
     ]
 
-   # print(filter_by_state(d, "CANCELED"))
+    # print(filter_by_state(d, "CANCELED"))
     print(*sort_by_date(d), sep="\n")
-
