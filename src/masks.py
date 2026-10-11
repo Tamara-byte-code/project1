@@ -32,9 +32,9 @@ def get_mask_account(account_number: str) -> str:
     clean_number = account_number.replace(" ", "").replace("-", "")
 
     if len(clean_number) < 4:
-        return "*" * len(clean_number)
+        return "Неверный формат счёта"
 
     # Маскируем все символы, кроме последних 4
-    masked = "*" * (len(clean_number) - 4) + clean_number[-4:]
-
+   # masked = "*" * (len(clean_number) - 4) + clean_number[-4:]
+    masked = f"**{clean_number[-4:]}"
     return masked
