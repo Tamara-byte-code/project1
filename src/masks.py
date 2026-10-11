@@ -26,7 +26,7 @@ def get_mask_account(account_number: str) -> str:
         str: Замаскированный номер счета
     """
     if not account_number:
-        return ""
+        return "Неверный формат счёта"
 
     # Очищаем строку от возможных пробелов и дефисов
     clean_number = account_number.replace(" ", "").replace("-", "")
@@ -35,6 +35,6 @@ def get_mask_account(account_number: str) -> str:
         return "Неверный формат счёта"
 
     # Маскируем все символы, кроме последних 4
-   # masked = "*" * (len(clean_number) - 4) + clean_number[-4:]
+    # masked = "*" * (len(clean_number) - 4) + clean_number[-4:]
     masked = f"**{clean_number[-4:]}"
     return masked
