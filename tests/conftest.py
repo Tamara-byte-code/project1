@@ -2,6 +2,17 @@ import pytest
 
 
 @pytest.fixture
+def param_description():
+    return [
+        "Перевод организации",
+        "Перевод со счета на счет",
+        "Перевод со счета на счет",
+        "Перевод с карты на карту",
+        "Перевод организации",
+    ]
+
+
+@pytest.fixture
 def dict_filter_by_state():
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
