@@ -20,9 +20,11 @@ def mask_account_card(info: str) -> str:
     if name.lower().startswith("счет"):
         masked_number = get_mask_account(number)
     else:
-        masked_number = get_mask_card_number(number)
-
-    return f"{name} {masked_number}"
+        masked_number = get_mask_card_number(number[-16:])
+    if masked_number == "Неверный номер карты" or masked_number == "Неверный формат счёта":
+        return f"{masked_number}"
+    else:
+        return f"{name} {masked_number}"
 
 
 def get_date(date_str: str) -> str:
